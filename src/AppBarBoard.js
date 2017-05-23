@@ -36,7 +36,7 @@ export default class AppBarBoard extends Component {
     const { isOpen } = this.state;
 
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={this.context.muiTheme}>
         <div
           tabIndex={1}
           onBlur={::this.closeMyAccount}

@@ -58,7 +58,7 @@ var AppBarBoard = function (_Component) {
 
       return React.createElement(
         MuiThemeProvider,
-        null,
+        { muiTheme: this.context.muiTheme },
         React.createElement(
           'div',
           {
