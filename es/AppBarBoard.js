@@ -39,8 +39,34 @@ var AppBarBoard = function (_Component) {
   }
 
   _createClass(AppBarBoard, [{
-    key: 'openMyAccount',
-    value: function openMyAccount() {
+    key: 'getAppButtons',
+    value: function getAppButtons() {
+      var apps = this.props.apps;
+
+      var JSX = [];
+
+      for (var k in apps) {
+        if (apps.hasOwnProperty(k)) {
+          (function () {
+            var app = apps[k];
+            JSX.push(React.createElement(
+              'div',
+              {
+                onMouseDown: function onMouseDown() {
+                  window.location.replace(app.url);
+                }
+              },
+              React.createElement(AppButton, { backgroundColor: app.color, label: app.label })
+            ));
+          })();
+        }
+      }
+
+      return JSX;
+    }
+  }, {
+    key: 'openBoard',
+    value: function openBoard() {
       this.setState({ isOpen: true });
     }
   }, {
@@ -53,6 +79,7 @@ var AppBarBoard = function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var moreAppUrl = this.props.moreAppUrl;
       var isOpen = this.state.isOpen;
 
 
@@ -62,6 +89,7 @@ var AppBarBoard = function (_Component) {
         React.createElement(
           'div',
           {
+            style: { margin: '12' },
             tabIndex: 1,
             onBlur: this.closeMyAccount.bind(this)
           },
@@ -71,7 +99,7 @@ var AppBarBoard = function (_Component) {
             React.createElement(Apps, {
               style: { color: 'white', cursor: 'pointer' },
               onClick: function onClick() {
-                _this2.openMyAccount();
+                _this2.openBoard();
               }
             }),
             isOpen ? React.createElement(
@@ -84,17 +112,7 @@ var AppBarBoard = function (_Component) {
                 {
                   style: styles.subContainer
                 },
-                React.createElement(AppButton, { backgroundColor: '#9c27b0', label: 'Sales' }),
-                React.createElement(AppButton, { backgroundColor: '#673ab7', label: 'Dispatch' }),
-                React.createElement(AppButton, { backgroundColor: '#3f51b5', label: 'Scheduling' }),
-                React.createElement(AppButton, { backgroundColor: '#2196f3', label: 'Fleet' }),
-                React.createElement(AppButton, { backgroundColor: '#4caf50', label: 'Safety' }),
-                React.createElement(AppButton, { backgroundColor: '#cddc39', label: 'Accounting' }),
-                React.createElement(AppButton, { backgroundColor: '#ffc107', label: 'HR' }),
-                React.createElement(AppButton, { backgroundColor: '#00bcd4', label: 'Reports' }),
-                React.createElement(AppButton, { backgroundColor: '#e91e63', label: 'EDI' }),
-                React.createElement(AppButton, { backgroundColor: '#607d8b', label: 'Manager' }),
-                React.createElement(AppButton, { backgroundColor: '#000000', label: 'Admin' })
+                this.getAppButtons()
               ),
               React.createElement(
                 'div',
@@ -104,10 +122,10 @@ var AppBarBoard = function (_Component) {
                 React.createElement(FlatButton, {
                   label: 'More Apps',
                   backgroundColor: 'white',
-                  hoverColor: '#e0e0e0'
-                  // onMouseDown = {() => {
-                  //   browserHistory.push('/signout');
-                  // }}
+                  hoverColor: '#e0e0e0',
+                  onMouseDown: function onMouseDown() {
+                    window.location.replace(moreAppUrl);
+                  }
                 })
               )
             ) : null
@@ -120,7 +138,10 @@ var AppBarBoard = function (_Component) {
   return AppBarBoard;
 }(Component);
 
-AppBarBoard.propTypes = {};
+AppBarBoard.propTypes = {
+  apps: PropTypes.array,
+  moreAppUrl: PropTypes.string
+};
 AppBarBoard.contextTypes = {
   muiTheme: PropTypes.object.isRequired,
   router: React.PropTypes.object

@@ -1,3 +1,25 @@
-<div style={{ background: '#2196f3'}}>
-<AppBarBoard />
-</div>
+<MuiThemeProvider>
+  <AppBar
+    iconClassNameRight="muidocs-icon-navigation-expand-more"
+    iconElementRight={
+      <AppBarBoard
+        apps = {
+          [
+            { label: 'Sales', url: '/', color: '#9c27b0' },
+            { label: 'Dispatch', url: '/', color: '#673ab7' },
+            { label: 'Scheduling', url: '/', color: '#3f51b5' },
+            { label: 'Fleet', url: '/', color: '#2196f3' },
+            { label: 'Safety', url: '/', color: '#4caf50' },
+            { label: 'Accounting', url: '/', color: '#cddc39' },
+            { label: 'HR', url: '/', color: '#ffc107' },
+            { label: 'Reports', url: '/', color: '#00bcd4' },
+            { label: 'EDI', url: '/', color: '#e91e63' },
+            { label: 'Manager', url: '/', color: '#607d8b' },
+            { label: 'Admin', url: '/', color: '#000000' },
+          ]
+        }
+        moreAppUrl={'/'}
+      />
+    }
+  />
+</MuiThemeProvider>

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 import AppBarBoard from '../src';
+import AppBar from 'material-ui/AppBar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
@@ -10,7 +13,7 @@ const AppBarBoardExample = require('raw!../src/AppBarBoard.example');
 
 const Index = () => (
   <div className="component-documentation">
-    <Playground codeText={AppBarBoardExample} scope={{ React, AppBarBoard }} />
+    <Playground codeText={AppBarBoardExample} scope={{ React, AppBarBoard, AppBar, MuiThemeProvider }} />
   </div>
 );
 

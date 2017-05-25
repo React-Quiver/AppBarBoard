@@ -13,6 +13,8 @@ import styles from './styles';
 
 export default class AppBarBoard extends Component {
   static propTypes = {
+    apps: PropTypes.array,
+    moreAppUrl: PropTypes.string,
   };
 
   static contextTypes = {
@@ -24,7 +26,29 @@ export default class AppBarBoard extends Component {
     isOpen: false,
   }
 
-  openMyAccount() {
+  getAppButtons() {
+    const { apps } = this.props;
+    const JSX = [];
+
+    for (const k in apps) {
+      if (apps.hasOwnProperty(k)) {
+        const app = apps[k];
+        JSX.push(
+          <div
+            onMouseDown = {() => {
+              window.location.replace(app.url);
+            }}
+          >
+            <AppButton backgroundColor={app.color} label={app.label} />
+          </div>
+        );
+      }
+    }
+
+    return JSX;
+  }
+
+  openBoard() {
     this.setState({ isOpen: true });
   }
 
@@ -33,11 +57,13 @@ export default class AppBarBoard extends Component {
   }
 
   render() {
+    const { moreAppUrl } = this.props;
     const { isOpen } = this.state;
 
     return (
       <MuiThemeProvider muiTheme={this.context.muiTheme}>
         <div
+          style={{ margin: '12' }}
           tabIndex={1}
           onBlur={::this.closeMyAccount}
         >
@@ -45,7 +71,7 @@ export default class AppBarBoard extends Component {
             <Apps
               style={{ color: 'white', cursor: 'pointer' }}
               onClick = {() => {
-                this.openMyAccount();
+                this.openBoard();
               }}
             />
             {
@@ -56,17 +82,7 @@ export default class AppBarBoard extends Component {
               <div
                 style = {styles.subContainer}
               >
-                <AppButton backgroundColor={'#9c27b0'} label={'Sales'} />
-                <AppButton backgroundColor={'#673ab7'} label={'Dispatch'} />
-                <AppButton backgroundColor={'#3f51b5'} label={'Scheduling'} />
-                <AppButton backgroundColor={'#2196f3'} label={'Fleet'} />
-                <AppButton backgroundColor={'#4caf50'} label={'Safety'} />
-                <AppButton backgroundColor={'#cddc39'} label={'Accounting'} />
-                <AppButton backgroundColor={'#ffc107'} label={'HR'} />
-                <AppButton backgroundColor={'#00bcd4'} label={'Reports'} />
-                <AppButton backgroundColor={'#e91e63'} label={'EDI'} />
-                <AppButton backgroundColor={'#607d8b'} label={'Manager'} />
-                <AppButton backgroundColor={'#000000'} label={'Admin'} />
+                {this.getAppButtons()}
               </div>
               <div
                 style = {styles.moreContainer}
@@ -75,9 +91,9 @@ export default class AppBarBoard extends Component {
                   label="More Apps"
                   backgroundColor={'white'}
                   hoverColor={'#e0e0e0'}
-                  // onMouseDown = {() => {
-                  //   browserHistory.push('/signout');
-                  // }}
+                  onMouseDown = {() => {
+                    window.location.replace(moreAppUrl);
+                  }}
                 />
               </div>
               </Paper>
