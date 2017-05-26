@@ -79,7 +79,9 @@ var AppBarBoard = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var moreAppUrl = this.props.moreAppUrl;
+      var _props = this.props,
+          moreAppUrl = _props.moreAppUrl,
+          iconStyle = _props.iconStyle;
       var isOpen = this.state.isOpen;
 
 
@@ -97,7 +99,9 @@ var AppBarBoard = function (_Component) {
             'div',
             null,
             React.createElement(Apps, {
-              style: { color: 'white', cursor: 'pointer' },
+              style: {
+                color: iconStyle && iconStyle.color ? iconStyle.color : 'white',
+                cursor: 'pointer' },
               onClick: function onClick() {
                 _this2.openBoard();
               }
@@ -140,7 +144,8 @@ var AppBarBoard = function (_Component) {
 
 AppBarBoard.propTypes = {
   apps: PropTypes.array,
-  moreAppUrl: PropTypes.string
+  moreAppUrl: PropTypes.string,
+  iconStyle: PropTypes.object
 };
 AppBarBoard.contextTypes = {
   muiTheme: PropTypes.object.isRequired,

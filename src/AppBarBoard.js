@@ -15,6 +15,7 @@ export default class AppBarBoard extends Component {
   static propTypes = {
     apps: PropTypes.array,
     moreAppUrl: PropTypes.string,
+    iconStyle: PropTypes.object,
   };
 
   static contextTypes = {
@@ -57,7 +58,7 @@ export default class AppBarBoard extends Component {
   }
 
   render() {
-    const { moreAppUrl } = this.props;
+    const { moreAppUrl, iconStyle } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -69,7 +70,9 @@ export default class AppBarBoard extends Component {
         >
           <div>
             <Apps
-              style={{ color: 'white', cursor: 'pointer' }}
+              style={{
+                color: iconStyle && iconStyle.color ? iconStyle.color : 'white',
+                cursor: 'pointer' }}
               onClick = {() => {
                 this.openBoard();
               }}
