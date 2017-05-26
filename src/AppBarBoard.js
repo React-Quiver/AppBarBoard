@@ -6,6 +6,9 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import Apps from 'material-ui/svg-icons/navigation/apps';
 
+// open source components
+import cookie from 'react-cookie';
+
 import AppButton from './AppButton';
 
 // styles
@@ -37,6 +40,7 @@ export default class AppBarBoard extends Component {
         JSX.push(
           <div
             onMouseDown = {() => {
+              cookie.save('lastAppRequested', app.url, { path: '/' });
               window.location.replace(app.url);
             }}
           >

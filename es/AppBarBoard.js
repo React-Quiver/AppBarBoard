@@ -14,6 +14,9 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import Apps from 'material-ui/svg-icons/navigation/apps';
 
+// open source components
+import cookie from 'react-cookie';
+
 import AppButton from './AppButton';
 
 // styles
@@ -53,6 +56,7 @@ var AppBarBoard = function (_Component) {
               'div',
               {
                 onMouseDown: function onMouseDown() {
+                  cookie.save('lastAppRequested', app.url, { path: '/' });
                   window.location.replace(app.url);
                 }
               },
