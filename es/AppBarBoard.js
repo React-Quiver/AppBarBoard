@@ -84,7 +84,7 @@ var AppBarBoard = function (_Component) {
       var _this2 = this;
 
       var _props = this.props,
-          moreAppUrl = _props.moreAppUrl,
+          homeUrl = _props.homeUrl,
           iconStyle = _props.iconStyle;
       var isOpen = this.state.isOpen;
 
@@ -128,11 +128,11 @@ var AppBarBoard = function (_Component) {
                   style: styles.moreContainer
                 },
                 React.createElement(FlatButton, {
-                  label: 'More Apps',
+                  label: 'Home',
                   backgroundColor: 'white',
                   hoverColor: '#e0e0e0',
                   onMouseDown: function onMouseDown() {
-                    window.location.replace(moreAppUrl);
+                    window.location.replace(homeUrl);
                   }
                 })
               )
@@ -148,7 +148,7 @@ var AppBarBoard = function (_Component) {
 
 AppBarBoard.propTypes = {
   apps: PropTypes.array,
-  moreAppUrl: PropTypes.string,
+  homeUrl: PropTypes.string,
   iconStyle: PropTypes.object
 };
 AppBarBoard.contextTypes = {

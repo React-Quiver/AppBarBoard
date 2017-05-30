@@ -17,7 +17,7 @@ import styles from './styles';
 export default class AppBarBoard extends Component {
   static propTypes = {
     apps: PropTypes.array,
-    moreAppUrl: PropTypes.string,
+    homeUrl: PropTypes.string,
     iconStyle: PropTypes.object,
   };
 
@@ -62,7 +62,7 @@ export default class AppBarBoard extends Component {
   }
 
   render() {
-    const { moreAppUrl, iconStyle } = this.props;
+    const { homeUrl, iconStyle } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -95,11 +95,11 @@ export default class AppBarBoard extends Component {
                 style = {styles.moreContainer}
               >
                 <FlatButton
-                  label="More Apps"
+                  label="Home"
                   backgroundColor={'white'}
                   hoverColor={'#e0e0e0'}
                   onMouseDown = {() => {
-                    window.location.replace(moreAppUrl);
+                    window.location.replace(homeUrl);
                   }}
                 />
               </div>
