@@ -68,7 +68,7 @@ export default class AppBarBoard extends Component {
     return (
       <MuiThemeProvider muiTheme={this.context.muiTheme}>
         <div
-          style={{ margin: '12' }}
+          style={{ margin: 12 }}
           tabIndex={1}
           onBlur={::this.closeMyAccount}
         >

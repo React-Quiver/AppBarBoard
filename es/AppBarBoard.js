@@ -95,7 +95,7 @@ var AppBarBoard = function (_Component) {
         React.createElement(
           'div',
           {
-            style: { margin: '12' },
+            style: { margin: 12 },
             tabIndex: 1,
             onBlur: this.closeMyAccount.bind(this)
           },
