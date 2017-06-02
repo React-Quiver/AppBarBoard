@@ -55,6 +55,7 @@ var AppBarBoard = function (_Component) {
             JSX.push(React.createElement(
               'div',
               {
+                key: k,
                 onMouseDown: function onMouseDown() {
                   cookie.save('lastAppRequested', app.url, { path: '/' });
                   window.location.replace(app.url);
