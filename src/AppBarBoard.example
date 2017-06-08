@@ -4,18 +4,43 @@
     iconElementRight={
       <AppBarBoard
         apps = {
-          [
-            { label: 'Sales', url: '/', color: '#9c27b0' },
-            { label: 'Dispatch', url: '/', color: '#673ab7' },
-            { label: 'Scheduling', url: '/', color: '#3f51b5' },
-            { label: 'Fleet', url: '/', color: '#2196f3' },
-            { label: 'Safety', url: '/', color: '#4caf50' },
-            { label: 'Accounting', url: '/', color: '#cddc39' },
-            { label: 'HR', url: '/', color: '#ffc107' },
-            { label: 'Reports', url: '/', color: '#00bcd4' },
-            { label: 'EDI', url: '/', color: '#e91e63' },
-            { label: 'Manager', url: '/', color: '#607d8b' },
-            { label: 'Admin', url: '/', color: '#000000' },
+        [
+          {
+            "name": "Wiki",
+            "url": "wiki.archer-app.com",
+            "color": "#f44336",
+            "icon": "wiki_icon"
+          },
+          {
+            "name": "Pied Piper",
+            "url": "piedpiper.archer-app.com",
+            "color": "#ff9800",
+            "icon": "pp_icon"
+          },
+          {
+            "name": "Sales",
+            "url": "sales.archer-app.com",
+            "color": "#9c27b0",
+            "icon": "sales_icon"
+          },
+          {
+            "name": "Dispatch",
+            "url": "dispatch.archer-app.com",
+            "color": "#673ab7",
+            "icon": "dispatch_icon"
+          },
+          {
+            "name": "Guides",
+            "url": "guides.archer-app.com",
+            "color": "#f44336",
+            "icon": "guides_icon"
+          },
+          {
+            "name": "Admin",
+            "url": "admin.archer-app.com",
+            "color": "#000000",
+            "icon": "admin_icon"
+          }
           ]
         }
         moreAppUrl={'/'}

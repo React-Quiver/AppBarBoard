@@ -45,7 +45,7 @@ export default class AppBarBoard extends Component {
               window.location.replace(app.url);
             }}
           >
-            <AppButton backgroundColor={app.color} label={app.label} />
+            <AppButton backgroundColor={app.color} label={app.name} />
           </div>
         );
       }

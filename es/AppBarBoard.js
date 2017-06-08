@@ -61,7 +61,7 @@ var AppBarBoard = function (_Component) {
                   window.location.replace(app.url);
                 }
               },
-              React.createElement(AppButton, { backgroundColor: app.color, label: app.label })
+              React.createElement(AppButton, { backgroundColor: app.color, label: app.name })
             ));
           })();
         }
