@@ -58,7 +58,7 @@ var AppBarBoard = function (_Component) {
                 key: k,
                 onMouseDown: function onMouseDown() {
                   cookie.save('lastAppRequested', app.url, { path: '/' });
-                  window.location.replace('https://' + app.url);
+                  window.location.replace(app.url);
                 }
               },
               React.createElement(AppButton, { backgroundColor: app.color, label: app.name })
@@ -133,7 +133,7 @@ var AppBarBoard = function (_Component) {
                   backgroundColor: 'white',
                   hoverColor: '#e0e0e0',
                   onMouseDown: function onMouseDown() {
-                    window.location.replace('https://' + homeUrl);
+                    window.location.replace(homeUrl);
                   }
                 })
               )
