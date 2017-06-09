@@ -41,7 +41,7 @@ export default class AppBarBoard extends Component {
           <div
             key = {k}
             onMouseDown = {() => {
-              cookie.save('lastAppRequested', app.url, { path: '/' });
+              cookie.save('lastAppRequested', `https://${app.url}`, { path: '/' });
               window.location.replace(`https://${app.url}`);
             }}
           >
