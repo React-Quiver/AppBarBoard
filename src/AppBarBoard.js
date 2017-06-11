@@ -63,52 +63,55 @@ export default class AppBarBoard extends Component {
   }
 
   render() {
-    const { homeUrl, iconStyle } = this.props;
+    const { homeUrl, iconStyle, apps } = this.props;
     const { isOpen } = this.state;
 
     return (
       <MuiThemeProvider muiTheme={this.context.muiTheme}>
-        <div
-          style={{ margin: 12 }}
-          tabIndex={1}
-          onBlur={::this.closeMyAccount}
-        >
-          <div>
-            <Apps
-              style={{
-                color: iconStyle && iconStyle.color ? iconStyle.color : 'white',
-                cursor: 'pointer' }}
-              onClick = {() => {
-                this.openBoard();
-              }}
-            />
-            {
-              isOpen ?
-              <Paper
-                style = {styles.containerB}
-              >
-              <div
-                style = {styles.subContainer}
-              >
-                {this.getAppButtons()}
-              </div>
-              <div
-                style = {styles.moreContainer}
-              >
-                <FlatButton
-                  label="Home"
-                  backgroundColor={'white'}
-                  hoverColor={'#e0e0e0'}
-                  onMouseDown = {() => {
-                    window.location.replace(homeUrl);
-                  }}
-                />
-              </div>
-              </Paper>
-              : null
-            }
-          </div>
-        </div>
+        {
+          apps && (apps.size > 0) ?
+          <div
+            style={{ margin: 12 }}
+            tabIndex={1}
+            onBlur={::this.closeMyAccount}
+          >
+            <div>
+              <Apps
+                style={{
+                  color: iconStyle && iconStyle.color ? iconStyle.color : 'white',
+                  cursor: 'pointer' }}
+                onClick = {() => {
+                  this.openBoard();
+                }}
+              />
+              {
+                isOpen ?
+                <Paper
+                  style = {styles.containerB}
+                >
+                <div
+                  style = {styles.subContainer}
+                >
+                  {this.getAppButtons()}
+                </div>
+                <div
+                  style = {styles.moreContainer}
+                >
+                  <FlatButton
+                    label="Home"
+                    backgroundColor={'white'}
+                    hoverColor={'#e0e0e0'}
+                    onMouseDown = {() => {
+                      window.location.replace(homeUrl);
+                    }}
+                  />
+                </div>
+                </Paper>
+                : null
+              }
+            </div>
+          </div> : null
+        }
       </MuiThemeProvider>
     );
   }
