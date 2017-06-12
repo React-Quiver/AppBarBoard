@@ -94,7 +94,7 @@ var AppBarBoard = function (_Component) {
       return React.createElement(
         MuiThemeProvider,
         { muiTheme: this.context.muiTheme },
-        apps && apps.size > 0 ? React.createElement(
+        apps ? React.createElement(
           'div',
           {
             style: { margin: 12 },

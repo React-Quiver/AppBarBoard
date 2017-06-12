@@ -69,7 +69,7 @@ export default class AppBarBoard extends Component {
     return (
       <MuiThemeProvider muiTheme={this.context.muiTheme}>
         {
-          apps && (apps.size > 0) ?
+          apps ?
           <div
             style={{ margin: 12 }}
             tabIndex={1}
