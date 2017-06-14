@@ -63,13 +63,11 @@ export default class AppBarBoard extends Component {
   }
 
   render() {
-    const { homeUrl, iconStyle, apps } = this.props;
+    const { homeUrl, iconStyle } = this.props;
     const { isOpen } = this.state;
 
     return (
       <MuiThemeProvider muiTheme={this.context.muiTheme}>
-        {
-          apps ?
           <div
             style={{ margin: 12 }}
             tabIndex={1}
@@ -110,8 +108,7 @@ export default class AppBarBoard extends Component {
                 : null
               }
             </div>
-          </div> : null
-        }
+          </div>
       </MuiThemeProvider>
     );
   }

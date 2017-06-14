@@ -86,15 +86,14 @@ var AppBarBoard = function (_Component) {
 
       var _props = this.props,
           homeUrl = _props.homeUrl,
-          iconStyle = _props.iconStyle,
-          apps = _props.apps;
+          iconStyle = _props.iconStyle;
       var isOpen = this.state.isOpen;
 
 
       return React.createElement(
         MuiThemeProvider,
         { muiTheme: this.context.muiTheme },
-        apps ? React.createElement(
+        React.createElement(
           'div',
           {
             style: { margin: 12 },
@@ -140,7 +139,7 @@ var AppBarBoard = function (_Component) {
               )
             ) : null
           )
-        ) : null
+        )
       );
     }
   }]);
