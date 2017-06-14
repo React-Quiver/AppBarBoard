@@ -57,8 +57,10 @@ var AppBarBoard = function (_Component) {
               {
                 key: k,
                 onMouseDown: function onMouseDown() {
-                  cookie.save('lastAppRequested', 'https://' + app.url, { path: '/' });
-                  window.location.replace('https://' + app.url);
+                  if (app.url) {
+                    window.open('https://' + app.url, '_blank');
+                    window.focus();
+                  }
                 }
               },
               React.createElement(AppButton, { backgroundColor: app.color, label: app.name })

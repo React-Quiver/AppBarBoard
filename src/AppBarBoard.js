@@ -40,9 +40,11 @@ export default class AppBarBoard extends Component {
         JSX.push(
           <div
             key = {k}
-            onMouseDown = {() => {
-              cookie.save('lastAppRequested', `https://${app.url}`, { path: '/' });
-              window.location.replace(`https://${app.url}`);
+            onMouseDown={() => {
+              if (app.url) {
+                window.open(`https://${app.url}`, '_blank');
+                window.focus();
+              }
             }}
           >
             <AppButton backgroundColor={app.color} label={app.name} />
